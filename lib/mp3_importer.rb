@@ -3,12 +3,15 @@ require 'pry'
 class MP3Importer
   # Needs the following instance variables: files, path
   # Needs the following CLASS variables: @@list_of_files
-  # Needs the following instance methods:
-  ### initialize(path), files, import
+  # Needs the following instance methods: initialize(path), files, import
+  # Needs the following CLASS method: list_of_files - class reader method
 
-  # Create instance variables & class variable
+  # Create instance variables, class variable, and class reader method
   attr_accessor :files, :path
   @@list_of_files = []
+  def self.list_of_files
+    @@list_of_files
+  end
 
   # Will be instantiated with a path in the following format:
   ### "./spec/fixtures/mp3s"
@@ -28,7 +31,7 @@ class MP3Importer
   end
 
   # This INSTANCE method calls the files method, which returns an array of file names
-  # It iterates over those file names, and creates a new song from each,
+  # It iterates over those file names, and creates a new song from each using the #new_by_filename Song CLASS METHOD
   # Which it then pushes into the library (@@list_of_files)
   def import
     files.each { |filename| @@list_of_files << Song.new_by_filename(filename) }
