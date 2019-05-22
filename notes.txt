@@ -1,2 +1,0 @@
-# The hardest thing about this lab for me was figuring out how the different methods related to each other.
-# As in, which methods were called within which other methods.
