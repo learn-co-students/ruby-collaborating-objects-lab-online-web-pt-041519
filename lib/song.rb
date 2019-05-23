@@ -10,7 +10,7 @@ class Song
   # Parse filename, create new song, associate song with artist, and return new song instance
   def self.new_by_filename(filename)
     # Separate filename into song name and artist name
-    artist, song_name = filename.split(" - ").strip
+    artist, song_name = filename.split(" - ")
 
     # Create new song instance
     song = self.new(song_name)
