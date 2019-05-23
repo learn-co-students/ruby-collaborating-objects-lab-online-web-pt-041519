@@ -17,18 +17,13 @@ class Artist
 
   # Add input song instance to array of this artist's songs
   def add_song(song)
-    # binding.pry
-
-    ## Add this to @@all instead of @songs?
-    #@songs << song
-    # song.artist = @name
     @songs << song
     save
   end
 
   # Save this artist to the array of all artists
   def save
-    self.class.all << self
+    @@all << self
   end
 
   # Find artist object or creat new object from input artist name
@@ -36,8 +31,8 @@ class Artist
     self.all.find{|artist| artist.name == artist_name} || self.new(artist_name)
   end
 
-  # Return all this artist's song names
+  # Print all this artist's song names
   def print_songs
-    @songs.select {|song| puts song.name}
+    @songs.each {|song| puts song.name}
   end
 end
